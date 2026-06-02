@@ -21,7 +21,7 @@ sbt "run \"/ruta/al/directorio\""
 Ejemplo con el set de prueba:
 
 ```bash
-sbt "run \"/home/lucas/Documentos/NotasDeLucas/UNS/LenguajesDeProgramacion/Proyectos/Promo/Etapa 2/Desarrollo/TestsCatedra\""
+sbt "run \"./TestsCatedra\""
 ```
 
 La salida se imprime en consola, una oracion por linea.
