@@ -5,15 +5,15 @@ import scala.math.log
 object Engine {
   private val sentenceSplitRegex = "(?<=[.!?])\\s+"
   private val tokenSplitRegex = "[^\\p{L}\\p{N}]+"
-  private val newlineRegex = "\\r\\n|\\r|\\n"
+  private val blockSplitRegex = "\\R+"
 
   def segmentText(text: String): List[RawSentence] = {
-    val normalized = text.replaceAll(newlineRegex, " ")
-    normalized
-      .split(sentenceSplitRegex)
-      .toList
+    text
+      .split(blockSplitRegex)
+      .flatMap(_.split(sentenceSplitRegex))
       .map(_.trim)
       .filter(_.nonEmpty)
+      .toList
       .map(RawSentence.apply)
   }
 

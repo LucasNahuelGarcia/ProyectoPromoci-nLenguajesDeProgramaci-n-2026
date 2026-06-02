@@ -10,8 +10,7 @@
 5) Verificar que los tipos habiliten el flujo del modelo sin estados ilegales.
 
 ## Capa 2 - Motor puro (Engine)
-6) Implementar segmentacion de oraciones en Engine (regex por .?!, normalizar saltos de linea, trim).
-	- Normalizacion de saltos de linea: reemplazar cualquier secuencia de \r, \n o \r\n por un solo espacio antes de segmentar.
+6) Implementar segmentacion de oraciones en Engine en dos fases (split por \\R+ y luego por (?<=[.!?])\\s+, trim).
 7) Implementar tokenizacion (minusculas, split por [^\p{L}\p{N}]+, filtrar stopwords).
 	- Puntuacion: eliminarla segun enunciado, aunque la nota defina token en abstracto.
 8) Implementar computeIdf (N sobre oraciones validas, df por presencia).
